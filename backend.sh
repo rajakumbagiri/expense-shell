@@ -77,7 +77,8 @@ VALIDATE $? "Enabling backend"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Client"
 
-mysql -h db.rajakumbagiri.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.rajakumbagiri.online -u root -pExpenseApp@1 < /home/ec2-user/expense-shell/backend/schema/expense.sql
+ &>>$LOGFILE
 VALIDATE $? "Schema loading"
 
 systemctl restart backend &>>$LOGFILE
